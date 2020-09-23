@@ -294,9 +294,9 @@ CREATE TABLE IF NOT EXISTS `video_game` (
   `series` tinytext,
   `genre_id` int(11) NOT NULL,
   `platform_id` int(11) NOT NULL,
-  `developper` text NOT NULL,
+  `developer` text NOT NULL,
   `publisher` text NOT NULL,
-  `first_release` date DEFAULT NULL,
+  `first_released` date DEFAULT NULL,
   `rating` tinyint(1) NOT NULL DEFAULT '0',
   `image` tinytext NOT NULL,
   PRIMARY KEY (`id`),
@@ -308,7 +308,7 @@ CREATE TABLE IF NOT EXISTS `video_game` (
 -- Dumping data for table `video_game`
 --
 
-INSERT INTO `video_game` (`id`, `name`, `series`, `genre_id`, `platform_id`, `developper`, `publisher`, `first_release`, `rating`, `image`) VALUES
+INSERT INTO `video_game` (`id`, `name`, `series`, `genre_id`, `platform_id`, `developer`, `publisher`, `first_released`, `rating`, `image`) VALUES
 (1, 'Hitman 2', 'Hitman', 1, 1, 'IO Interactive', 'Warner Bros. Interactive Entertainment', '2018-11-13', 5, 'Hitman_2'),
 (2, 'Bioshock', 'Bioshock', 2, 1, '2K Boston', '2K Games', '2007-08-21', 4, 'Bioshock'),
 (3, 'Overwatch', 'Overwatch', 2, 2, 'Blizzard Entertainment', 'Blizzard Entertainment', '2016-05-24', 5, 'Overwatch'),
