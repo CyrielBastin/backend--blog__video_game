@@ -96,27 +96,6 @@ INSERT INTO `article_type` (`id`, `type`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article__deleted`
---
-
-DROP TABLE IF EXISTS `article__deleted`;
-CREATE TABLE IF NOT EXISTS `article__deleted` (
-  `id` int(11) NOT NULL,
-  `title` tinytext NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `article_type_id` int(11) NOT NULL,
-  `video_game_id` int(11) NOT NULL,
-  `content` longtext NOT NULL,
-  `posted_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `IDX_000003` (`user_id`),
-  KEY `IDX_000004` (`article_type_id`),
-  KEY `IDX_000005` (`video_game_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `commentary`
 --
 
@@ -168,24 +147,6 @@ INSERT INTO `commentary` (`id`, `user_id`, `article_id`, `comment`, `posted_at`)
 (29, 1, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-22 19:01:56'),
 (30, 3, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-22 19:47:42'),
 (31, 2, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-23 21:58:17');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `commentary__deleted`
---
-
-DROP TABLE IF EXISTS `commentary__deleted`;
-CREATE TABLE IF NOT EXISTS `commentary__deleted` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `article_id` int(11) NOT NULL,
-  `comment` text NOT NULL,
-  `posted_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `IDX_000006` (`user_id`),
-  KEY `IDX_000007` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -263,23 +224,6 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `avatar`, `role`) VAL
 (1, 'Grimm', 'Secured_password', 'fake_email@hotmail.com', NULL, 9),
 (2, 'Toto', 'totototo', 'toto@yahoo.fr', NULL, 1),
 (3, 'Buddha', 'boubou', 'buddha123@hotmail.com', NULL, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_deleted`
---
-
-DROP TABLE IF EXISTS `user_deleted`;
-CREATE TABLE IF NOT EXISTS `user_deleted` (
-  `id` int(11) NOT NULL,
-  `username` tinytext NOT NULL,
-  `password` tinytext NOT NULL,
-  `email` tinytext NOT NULL,
-  `avatar` tinytext,
-  `role` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
