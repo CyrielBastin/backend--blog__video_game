@@ -1,10 +1,15 @@
 package com.project.blog__video_game.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class Genre
 {
-    private int id = 0;
-    private String name = "";
-    private String description = "";
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
+    private String description;
 
 
     public int getId() {

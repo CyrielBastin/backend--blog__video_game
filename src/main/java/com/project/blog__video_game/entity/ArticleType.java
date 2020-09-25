@@ -1,10 +1,16 @@
 package com.project.blog__video_game.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "article_type")
 public class ArticleType
 {
-    private int id = 0;
-    private String type = "";
-    private String description = "";
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String type;
+    private String description;
 
 
     public int getId() {

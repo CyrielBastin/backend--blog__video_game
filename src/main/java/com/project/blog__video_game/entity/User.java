@@ -1,13 +1,21 @@
 package com.project.blog__video_game.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User
 {
-    private int id = 0;
-    private String username = "";
-    private String password = "";
-    private String email = "";
-    private String avatar = "";
-    private int role = 1;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String username;
+    private String password;
+    private String email;
+    private String avatar;
+    private int role;
 
 
     public int getId() {

@@ -1,12 +1,20 @@
 package com.project.blog__video_game.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Commentary
 {
-    private int id = 0;
-    private int user_id = 0;
-    private int article_id = 0;
-    private String comment = "";
-    private String posted_at = "";
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private int user_id;
+    private int article_id;
+    private String comment;
+    private String posted_at;
 
 
     public int getId() {
