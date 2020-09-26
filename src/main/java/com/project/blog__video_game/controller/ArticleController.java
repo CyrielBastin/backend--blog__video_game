@@ -18,7 +18,7 @@ public class ArticleController
     private ArticleService articleService;
 
 
-    @GetMapping("/REST/article/{id}")
+    @GetMapping("/REST/articles/{id}")
     public String getArticleByIdREST (@PathVariable Integer id)
     {
         Article article = articleService.getById(id);
@@ -26,31 +26,11 @@ public class ArticleController
         return JSONService.stringify(article);
     }
 
-    @GetMapping("/REST/article")
+    @GetMapping("/REST/articles")
     public String getAllArticlesREST ()
     {
         List<Article> list_articles = articleService.getAll();
 
         return JSONService.stringify(list_articles);
-    }
-
-//=============================================================================================================
-//=============================================================================================================
-//=============================================================================================================
-
-    @GetMapping("/article/{id}")
-    public String getArticleById (@PathVariable Integer id)
-    {
-        Article article = articleService.getById(id);
-
-        return "<pre>" + JSONService.stringify(article) + "</pre>";
-    }
-
-    @GetMapping("/article")
-    public String getAllArticles ()
-    {
-        List<Article> list_articles = articleService.getAll();
-
-        return "<pre>" + JSONService.stringify(list_articles) + "</pre>";
     }
 }
