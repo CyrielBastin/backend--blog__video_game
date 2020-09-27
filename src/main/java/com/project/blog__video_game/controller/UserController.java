@@ -1,5 +1,7 @@
 package com.project.blog__video_game.controller;
 
+import com.project.blog__video_game.entity.Article;
+import com.project.blog__video_game.entity.Commentary;
 import com.project.blog__video_game.entity.User;
 import com.project.blog__video_game.service.JSONService;
 import com.project.blog__video_game.service.UserService;
@@ -32,5 +34,21 @@ public class UserController
         List<User> list_users = userService.getAll();
 
         return JSONService.stringify(list_users);
+    }
+
+    @GetMapping("/REST/users/{id}/articles")
+    public String getAllArticlesByUser (@PathVariable Integer id)
+    {
+        List<Article> list_articles = userService.getAllArticlesByUserId(id);
+
+        return JSONService.stringify(list_articles);
+    }
+
+    @GetMapping("/REST/users/{id}/commentaries")
+    public String getAllCommentariesByUser (@PathVariable Integer id)
+    {
+        List<Commentary> list_commentaries = userService.getAllCommentariesByUserId(id);
+
+        return JSONService.stringify(list_commentaries);
     }
 }

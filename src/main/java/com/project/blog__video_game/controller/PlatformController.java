@@ -1,6 +1,7 @@
 package com.project.blog__video_game.controller;
 
 import com.project.blog__video_game.entity.Platform;
+import com.project.blog__video_game.entity.VideoGame;
 import com.project.blog__video_game.service.JSONService;
 import com.project.blog__video_game.service.PlatformService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,5 +33,13 @@ public class PlatformController
         List<Platform> list_platforms = platformService.getAll();
 
         return JSONService.stringify(list_platforms);
+    }
+
+    @GetMapping("/REST/platforms/{id}/video-games")
+    public String getAllVideoGamesByPlatform (@PathVariable Integer id)
+    {
+        List<VideoGame> list_videoGames = platformService.getAllVideoGamesByPlatformId(id);
+
+        return JSONService.stringify(list_videoGames);
     }
 }

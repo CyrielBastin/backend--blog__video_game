@@ -1,7 +1,9 @@
 package com.project.blog__video_game.service;
 
 import com.project.blog__video_game.entity.Article;
+import com.project.blog__video_game.entity.Commentary;
 import com.project.blog__video_game.repository.ArticleRepository;
+import com.project.blog__video_game.repository.CommentaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ public class ArticleService implements RESTService<Article>
 {
     @Autowired
     private ArticleRepository articleRepository;
+    @Autowired
+    private CommentaryRepository commentaryRepository;
 
 
     @Override
@@ -35,5 +39,10 @@ public class ArticleService implements RESTService<Article>
     @Override
     public List<Article> getAll() {
         return articleRepository.findAll();
+    }
+
+    public List<Commentary> getAllCommentariesByArticleId (Integer id)
+    {
+        return commentaryRepository.findAllByArticleId(id);
     }
 }

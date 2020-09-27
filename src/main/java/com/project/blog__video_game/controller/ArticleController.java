@@ -1,6 +1,7 @@
 package com.project.blog__video_game.controller;
 
 import com.project.blog__video_game.entity.Article;
+import com.project.blog__video_game.entity.Commentary;
 import com.project.blog__video_game.service.ArticleService;
 import com.project.blog__video_game.service.JSONService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,5 +33,13 @@ public class ArticleController
         List<Article> list_articles = articleService.getAll();
 
         return JSONService.stringify(list_articles);
+    }
+
+    @GetMapping("/REST/articles/{id}/commentaries")
+    public String getAllCommentariesByArticle (@PathVariable Integer id)
+    {
+        List<Commentary> list_commentaries = articleService.getAllCommentariesByArticleId(id);
+
+        return JSONService.stringify(list_commentaries);
     }
 }

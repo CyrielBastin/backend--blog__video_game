@@ -1,7 +1,9 @@
 package com.project.blog__video_game.service;
 
 import com.project.blog__video_game.entity.Genre;
+import com.project.blog__video_game.entity.VideoGame;
 import com.project.blog__video_game.repository.GenreRepository;
+import com.project.blog__video_game.repository.VideoGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ public class GenreService implements RESTService<Genre>
 {
     @Autowired
     private GenreRepository genreRepository;
+    @Autowired
+    private VideoGameRepository videoGameRepository;
 
 
     @Override
@@ -35,5 +39,10 @@ public class GenreService implements RESTService<Genre>
     @Override
     public List<Genre> getAll() {
         return genreRepository.findAll();
+    }
+
+    public List<VideoGame> getAllVideoGamesByGenreId (Integer id)
+    {
+        return videoGameRepository.findAllByGenreId(id);
     }
 }

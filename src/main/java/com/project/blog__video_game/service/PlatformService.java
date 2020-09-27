@@ -1,7 +1,9 @@
 package com.project.blog__video_game.service;
 
 import com.project.blog__video_game.entity.Platform;
+import com.project.blog__video_game.entity.VideoGame;
 import com.project.blog__video_game.repository.PlatformRepository;
+import com.project.blog__video_game.repository.VideoGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ public class PlatformService implements RESTService<Platform>
 {
     @Autowired
     private PlatformRepository platformRepository;
+    @Autowired
+    private VideoGameRepository videoGameRepository;
 
 
     @Override
@@ -36,5 +40,10 @@ public class PlatformService implements RESTService<Platform>
     @Override
     public List<Platform> getAll() {
         return platformRepository.findAll();
+    }
+
+    public List<VideoGame> getAllVideoGamesByPlatformId (Integer id)
+    {
+        return videoGameRepository.findAllByPlatformId(id);
     }
 }

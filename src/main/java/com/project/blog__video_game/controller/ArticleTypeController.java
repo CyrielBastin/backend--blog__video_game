@@ -33,4 +33,12 @@ public class ArticleTypeController
 
         return JSONService.stringify(list_articleTypes);
     }
+
+    @GetMapping("/REST/article-types/{id}/articles")
+    public String getAllArticlesByType (@PathVariable Integer id)
+    {
+        List<Article> list_articles = articleTypeService.getAllArticlesByArticleType(id);
+
+        return JSONService.stringify(list_articles);
+    }
 }

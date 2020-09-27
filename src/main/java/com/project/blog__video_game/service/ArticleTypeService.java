@@ -1,6 +1,8 @@
 package com.project.blog__video_game.service;
 
+import com.project.blog__video_game.entity.Article;
 import com.project.blog__video_game.entity.ArticleType;
+import com.project.blog__video_game.repository.ArticleRepository;
 import com.project.blog__video_game.repository.ArticleTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ public class ArticleTypeService implements RESTService<ArticleType>
 {
     @Autowired
     ArticleTypeRepository articleTypeRepository;
+    @Autowired
+    ArticleRepository articleRepository;
+
 
     @Override
     public ArticleType save(ArticleType obj) {
@@ -35,5 +40,10 @@ public class ArticleTypeService implements RESTService<ArticleType>
     @Override
     public List<ArticleType> getAll() {
         return articleTypeRepository.findAll();
+    }
+
+    public List<Article> getAllArticlesByArticleType (Integer id)
+    {
+        return articleRepository.findAllByArticleTypeId(id);
     }
 }
