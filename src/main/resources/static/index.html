@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>REST service</title>
+</head>
+<body>
+    <h1>REST Service for `Blog video game`</h1>
+
+<main>
+    <div class="list-categories">
+        <div class="category">
+            <div class="title">Articles :</div>
+            <div class="routes">
+                <div class="route">/REST/articles/</div>
+                <div class="route">/REST/articles/1/</div>
+                <div class="route">/REST/articles/2/commentaries/</div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="title">Article's types :</div>
+            <div class="routes">
+                <div class="route">/REST/article-types/</div>
+                <div class="route">/REST/article-types/1/</div>
+                <div class="route">/REST/article-types/1/articles/</div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="title">Commentaries :</div>
+            <div class="routes">
+                <div class="route">/REST/commentaries/</div>
+                <div class="route">/REST/commentaries/5</div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="title">Genres :</div>
+            <div class="routes">
+                <div class="route">/REST/genres/</div>
+                <div class="route">/REST/genres/2/</div>
+                <div class="route">/REST/genres/3/video-games/</div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="title">Platforms :</div>
+            <div class="routes">
+                <div class="route">/REST/platforms/</div>
+                <div class="route">/REST/platforms/1/</div>
+                <div class="route">/REST/platforms/4/video-games/</div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="title">Users :</div>
+            <div class="routes">
+                <div class="route">/REST/users/</div>
+                <div class="route">/REST/users/2/</div>
+                <div class="route">/REST/users/1/articles/</div>
+                <div class="route">/REST/users/3/commentaries/</div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="title">Video games :</div>
+            <div class="routes">
+                <div class="route">/REST/video-games/</div>
+                <div class="route">/REST/video-games/4</div>
+                <div class="route">/REST/video-games/3/articles/</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-result">
+        <div class="search-bar">
+            <input class="input-search" type="text"/>
+            <button class="button-ok">OK</button>
+        </div>
+        <div class="content"></div>
+    </div>
+</main>
+
+    <script src="index.js" defer></script>
+</body>
+</html>

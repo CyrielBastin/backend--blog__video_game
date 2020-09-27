@@ -1,0 +1,52 @@
+h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+main {
+    padding: 10px;
+    display: flex;
+}
+
+.list-categories {
+    margin-top: 50px;
+    width: 40vw;
+}
+
+.list-categories .category .title {
+    font-size: 24px;
+    text-decoration: underline;
+    margin-top: 35px;
+}
+
+.route {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.search-result {
+    width: 60vw;
+}
+
+.search-bar {
+    text-align: center;
+}
+.search-bar .input-search {
+    font-size: 30px;
+    height: 35px;
+    width: 40vw;
+}
+.search-bar .button-ok {
+    font-size: 30px;
+    height: 40px;
+}
+
+.content {
+    background-color: rgb(240, 240, 240);
+    width: 60vw;
+    max-width: 60vw;
+    margin-top: 10px;
+    min-height: 150vh;
+    font-size: 22px;
+    overflow: scroll;
+}
