@@ -3,19 +3,17 @@ package com.project.blog__video_game.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "video_game")
-public class VideoGame
-{
+public class VideoGame {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String series;
-    private int genre_id;
-    private int platform_id;
+    private int genreId;
+    private int platformId;
     private String developer;
     private String publisher;
-    private String first_released;
+    private String firstReleased;
     private int rating;
     private String image;
 
@@ -44,20 +42,20 @@ public class VideoGame
         this.series = series;
     }
 
-    public int getGenre_id() {
-        return genre_id;
+    public int getGenreId() {
+        return genreId;
     }
 
-    public void setGenre_id(int genre_id) {
-        this.genre_id = genre_id;
+    public void setGenreId(int genreId) {
+        this.genreId = genreId;
     }
 
-    public int getPlatform_id() {
-        return platform_id;
+    public int getPlatformId() {
+        return platformId;
     }
 
-    public void setPlatform_id(int platform_id) {
-        this.platform_id = platform_id;
+    public void setPlatformId(int platformId) {
+        this.platformId = platformId;
     }
 
     public String getDeveloper() {
@@ -76,12 +74,12 @@ public class VideoGame
         this.publisher = publisher;
     }
 
-    public String getFirst_released() {
-        return first_released;
+    public String getFirstReleased() {
+        return firstReleased;
     }
 
-    public void setFirst_released(String first_released) {
-        this.first_released = first_released;
+    public void setFirstReleased(String firstReleased) {
+        this.firstReleased = firstReleased;
     }
 
     public int getRating() {

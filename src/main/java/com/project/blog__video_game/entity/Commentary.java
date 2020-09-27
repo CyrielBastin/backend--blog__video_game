@@ -8,10 +8,10 @@ public class Commentary
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int user_id;
-    private int article_id;
+    private int userId;
+    private int articleId;
     private String comment;
-    private String posted_at;
+    private String postedAt;
     /*
     @ManyToOne
     @JoinColumn(name = "article_id", nullable = false, insertable = false, updatable = false)
@@ -27,20 +27,20 @@ public class Commentary
         this.id = id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getArticle_id() {
-        return article_id;
+    public int getArticleId() {
+        return articleId;
     }
 
-    public void setArticle_id(int article_id) {
-        this.article_id = article_id;
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
     }
 
     public String getComment() {
@@ -51,11 +51,11 @@ public class Commentary
         this.comment = comment;
     }
 
-    public String getPosted_at() {
-        return posted_at;
+    public String getPostedAt() {
+        return postedAt;
     }
 
-    public void setPosted_at(String posted_at) {
-        this.posted_at = posted_at;
+    public void setPostedAt(String postedAt) {
+        this.postedAt = postedAt;
     }
 }

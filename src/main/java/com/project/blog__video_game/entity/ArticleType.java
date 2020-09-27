@@ -3,7 +3,6 @@ package com.project.blog__video_game.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "article_type")
 public class ArticleType
 {
     @Id
