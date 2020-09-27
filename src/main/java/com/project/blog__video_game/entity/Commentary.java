@@ -1,9 +1,6 @@
 package com.project.blog__video_game.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Commentary
@@ -15,6 +12,11 @@ public class Commentary
     private int article_id;
     private String comment;
     private String posted_at;
+    /*
+    @ManyToOne
+    @JoinColumn(name = "article_id", nullable = false, insertable = false, updatable = false)
+    private Article article;
+     */
 
 
     public int getId() {

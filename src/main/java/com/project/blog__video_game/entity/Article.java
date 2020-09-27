@@ -1,9 +1,7 @@
 package com.project.blog__video_game.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Article
@@ -17,7 +15,10 @@ public class Article
     private int video_game_id;
     private String content;
     private String posted_at;
-
+    /*
+    @OneToMany(mappedBy = "article")
+    private List<Commentary> list_commentary;
+    */
 
     public int getId() {
         return id;
@@ -74,5 +75,14 @@ public class Article
     public void setPosted_at(String posted_at) {
         this.posted_at = posted_at;
     }
-}
 
+    /*
+    public List<Commentary> getList_commentary() {
+        return list_commentary;
+    }
+
+    public void setList_commentary(List<Commentary> list_commentary) {
+        this.list_commentary = list_commentary;
+    }
+     */
+}
