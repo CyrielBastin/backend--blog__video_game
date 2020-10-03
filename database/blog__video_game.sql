@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Sep 23, 2020 at 09:16 PM
+-- Generation Time: Oct 03, 2020 at 04:50 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `blog__video_game`
 --
+
 CREATE DATABASE IF NOT EXISTS `blog__video_game`;
 USE `blog__video_game`;
 
@@ -68,6 +69,20 @@ INSERT INTO `article` (`id`, `title`, `user_id`, `article_type_id`, `video_game_
 (16, 'Porro eius earum sed totam accusantium voluptates', 1, 1, 10, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis animi cumque quae quo labore fuga quibusdam ex, tenetur nam. Accusamus dolor explicabo tenetur facere, exercitationem error molestias? Repudiandae, ratione provident. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis blanditiis, commodi, voluptatem aspernatur quam aliquam nemo cum sint corporis quo, sunt vel doloribus! Hic vero id fuga illum earum eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odit veritatis id animi delectus magni atque necessitatibus est tempore repellendus cupiditate accusamus quam modi similique, voluptate minima praesentium numquam deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dicta nisi facilis ad tenetur deleniti officia, consequuntur nobis iusto inventore quo quidem dolorem! Veniam sunt itaque autem quis in aut? Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aut eaque, rerum commodi dignissimos, cum animi labore perferendis doloremque magni eos facere? Iste iusto, quasi laudantium magnam sint consequatur quo.', '2020-09-19 12:00:39'),
 (17, 'Quisquam saepe vero tenetur magnam eum sit expedita laborum nemo quas necessitatibus eaque quibusdam accusamus', 1, 1, 1, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis animi cumque quae quo labore fuga quibusdam ex, tenetur nam. Accusamus dolor explicabo tenetur facere, exercitationem error molestias? Repudiandae, ratione provident. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis blanditiis, commodi, voluptatem aspernatur quam aliquam nemo cum sint corporis quo, sunt vel doloribus! Hic vero id fuga illum earum eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odit veritatis id animi delectus magni atque necessitatibus est tempore repellendus cupiditate accusamus quam modi similique, voluptate minima praesentium numquam deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dicta nisi facilis ad tenetur deleniti officia, consequuntur nobis iusto inventore quo quidem dolorem! Veniam sunt itaque autem quis in aut? Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aut eaque, rerum commodi dignissimos, cum animi labore perferendis doloremque magni eos facere? Iste iusto, quasi laudantium magnam sint consequatur quo.', '2020-09-20 16:05:18'),
 (18, 'Pariatur quibusdam cumque facilis corporis voluptatibus vero dolores ut', 1, 2, 2, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis animi cumque quae quo labore fuga quibusdam ex, tenetur nam. Accusamus dolor explicabo tenetur facere, exercitationem error molestias? Repudiandae, ratione provident. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis blanditiis, commodi, voluptatem aspernatur quam aliquam nemo cum sint corporis quo, sunt vel doloribus! Hic vero id fuga illum earum eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odit veritatis id animi delectus magni atque necessitatibus est tempore repellendus cupiditate accusamus quam modi similique, voluptate minima praesentium numquam deleniti. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dicta nisi facilis ad tenetur deleniti officia, consequuntur nobis iusto inventore quo quidem dolorem! Veniam sunt itaque autem quis in aut? Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aut eaque, rerum commodi dignissimos, cum animi labore perferendis doloremque magni eos facere? Iste iusto, quasi laudantium magnam sint consequatur quo.', '2020-09-22 23:44:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_list_commentary`
+--
+
+DROP TABLE IF EXISTS `article_list_commentary`;
+CREATE TABLE IF NOT EXISTS `article_list_commentary` (
+  `article_id` int(11) NOT NULL,
+  `list_commentary_id` int(11) NOT NULL,
+  UNIQUE KEY `UK_nxcvv2hu7o7t3n3e9t3rrw3fm` (`list_commentary_id`),
+  KEY `FKdwag0f7hj44qly4iao13enrug` (`article_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -160,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `name` tinytext NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `genre`
@@ -185,6 +200,7 @@ CREATE TABLE IF NOT EXISTS `platform` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` tinytext NOT NULL,
   `description` text NOT NULL,
+  `image` tinytext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
@@ -192,12 +208,12 @@ CREATE TABLE IF NOT EXISTS `platform` (
 -- Dumping data for table `platform`
 --
 
-INSERT INTO `platform` (`id`, `name`, `description`) VALUES
-(1, 'Steam', 'Steam is the ultimate destination for playing, discussing, and creating games.'),
-(2, 'Battle.net', 'At Blizzard Entertainment, we pour our hearts and souls into everything we create. We embrace our core values every day so that we can continue creating epic entertainment experiences for all our players. It doesn’t matter who you are or where you’re located—if you’re a member of our evolving and vibrant community, working with us at one of our offices around the globe, or taking a piece of Blizzard with you into space—you’re welcome here.'),
-(3, 'Uplay', 'Get more from your games. The more you play, the more you get.'),
-(4, 'Origin', 'Play great PC games and connect with your friends, all in one place.'),
-(5, 'Indies', 'A collection of independant (indie) video games');
+INSERT INTO `platform` (`id`, `name`, `description`, `image`) VALUES
+(1, 'Steam', 'Steam is the ultimate destination for playing, discussing, and creating games.', 'Steam'),
+(2, 'Battle.net', 'At Blizzard Entertainment, we pour our hearts and souls into everything we create. We embrace our core values every day so that we can continue creating epic entertainment experiences for all our players. It doesn’t matter who you are or where you’re located—if you’re a member of our evolving and vibrant community, working with us at one of our offices around the globe, or taking a piece of Blizzard with you into space—you’re welcome here.', 'Battle_net'),
+(3, 'Uplay', 'Get more from your games. The more you play, the more you get.', 'Uplay'),
+(4, 'Origin', 'Play great PC games and connect with your friends, all in one place.', 'Origin'),
+(5, 'Indies', 'A collection of independant (indie) video games', 'Indies');
 
 -- --------------------------------------------------------
 
@@ -275,6 +291,13 @@ ALTER TABLE `article`
   ADD CONSTRAINT `FK_000003` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_000004` FOREIGN KEY (`article_type_id`) REFERENCES `article_type` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_000005` FOREIGN KEY (`video_game_id`) REFERENCES `video_game` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `article_list_commentary`
+--
+ALTER TABLE `article_list_commentary`
+  ADD CONSTRAINT `FKdwag0f7hj44qly4iao13enrug` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `FKnhdrrnwm60ahmkv1cnqlikidc` FOREIGN KEY (`list_commentary_id`) REFERENCES `commentary` (`id`);
 
 --
 -- Constraints for table `commentary`
