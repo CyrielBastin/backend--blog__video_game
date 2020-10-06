@@ -15,4 +15,6 @@ public interface ArticleRepository extends JpaRepository<Article, Integer>
     List<Article> findAllByArticleTypeId (Integer id);
 
     List<Article> findAllByVideoGameId (Integer id);
+
+    List<Article> findAllByOrderByPostedAtDesc ();
 }

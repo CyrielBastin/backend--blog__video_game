@@ -41,6 +41,10 @@ public class ArticleService implements RESTService<Article>
         return articleRepository.findAll();
     }
 
+    public List<Article> getAllByPostedAtDesc () {
+        return articleRepository.findAllByOrderByPostedAtDesc();
+    }
+
     public List<Commentary> getAllCommentariesByArticleId (Integer id)
     {
         return commentaryRepository.findAllByArticleId(id);

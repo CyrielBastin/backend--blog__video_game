@@ -37,6 +37,14 @@ public class ArticleController
         return JSONService.stringify(list_articles);
     }
 
+    @GetMapping("/REST/articles/desc")
+    public String getAllArticlesByPostedAtDescREST ()
+    {
+        List<Article> list_articles = articleService.getAllByPostedAtDesc();
+
+        return JSONService.stringify(list_articles);
+    }
+
     @GetMapping("/REST/articles/{id}/commentaries")
     public String getAllCommentariesByArticle (@PathVariable Integer id)
     {
