@@ -13,6 +13,7 @@ public class Platform
     private int id;
     private String name;
     private String description;
+    private String image;
 
 
     public int getId() {
@@ -37,5 +38,13 @@ public class Platform
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
