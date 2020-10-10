@@ -7,6 +7,7 @@ import com.project.blog__video_game.repository.CommentaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -48,5 +49,18 @@ public class ArticleService implements RESTService<Article>
     public List<Commentary> getAllCommentariesByArticleId (Integer id)
     {
         return commentaryRepository.findAllByArticleId(id);
+    }
+
+    public List<Commentary> getAllCommentariesByArticleIdDesc (Integer id)
+    {
+        List<Commentary> list_commentaries = getAllCommentariesByArticleId(id);
+        List<Commentary> reversed = new ArrayList<>();
+
+        for (int i = list_commentaries.size(); i > 0; i--)
+        {
+            reversed.add(list_commentaries.get(i - 1));
+        }
+
+        return reversed;
     }
 }

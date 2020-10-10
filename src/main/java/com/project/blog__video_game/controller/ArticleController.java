@@ -52,4 +52,12 @@ public class ArticleController
 
         return JSONService.stringify(list_commentaries);
     }
+
+    @GetMapping("/REST/articles/{id}/commentaries/desc")
+    public String getAllCommentariesByArticleDesc (@PathVariable Integer id)
+    {
+        List<Commentary> list_commentaries = articleService.getAllCommentariesByArticleIdDesc(id);
+
+        return JSONService.stringify(list_commentaries);
+    }
 }
