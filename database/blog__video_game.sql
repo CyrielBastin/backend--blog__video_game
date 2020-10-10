@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Oct 03, 2020 at 04:50 PM
+-- Generation Time: Oct 10, 2020 at 08:02 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -237,9 +237,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `avatar`, `role`) VALUES
-(1, 'Grimm', 'Secured_password', 'fake_email@hotmail.com', NULL, 9),
-(2, 'Toto', 'totototo', 'toto@yahoo.fr', NULL, 1),
-(3, 'Buddha', 'boubou', 'buddha123@hotmail.com', NULL, 1);
+(1, 'Grimm', 'Secured_password', 'fake_email@hotmail.com', 'Diablo_IV', 9),
+(2, 'Toto', 'totototo', 'toto@yahoo.fr', 'Far_Cry_5', 1),
+(3, 'Buddha', 'boubou', 'buddha123@hotmail.com', 'Human_Fall_Flat', 1);
 
 -- --------------------------------------------------------
 
