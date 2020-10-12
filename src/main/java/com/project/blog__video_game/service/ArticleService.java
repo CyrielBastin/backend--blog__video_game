@@ -22,6 +22,9 @@ public class ArticleService implements RESTService<Article>
 
     @Override
     public Article save(Article obj) {
+        if (obj.getPostedAt().isEmpty()) {
+            obj.setPostedAt(DateTimeService.getCurrentDateTime());
+        }
         return articleRepository.save(obj);
     }
 

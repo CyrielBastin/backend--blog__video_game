@@ -4,10 +4,7 @@ import com.project.blog__video_game.entity.Article;
 import com.project.blog__video_game.entity.Commentary;
 import com.project.blog__video_game.service.ArticleService;
 import com.project.blog__video_game.service.JSONService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -59,5 +56,27 @@ public class ArticleController
         List<Commentary> list_commentaries = articleService.getAllCommentariesByArticleIdDesc(id);
 
         return JSONService.stringify(list_commentaries);
+    }
+
+    //====================================================================================================
+    //
+    //====================================================================================================
+
+    @PostMapping("/REST/articles/new")
+    public void postNewArticle (@RequestBody Article article)
+    {
+        articleService.save(article);
+    }
+
+    @PutMapping("/REST/articles/update")
+    public void putEditArticle (@RequestBody Article article)
+    {
+        articleService.save(article);
+    }
+
+    @DeleteMapping("/REST/articles/delete/{id}")
+    public void deleteArticle (@PathVariable Integer id)
+    {
+        articleService.delete(id);
     }
 }
