@@ -16,6 +16,7 @@ public class CommentaryService implements RESTService<Commentary>
 
     @Override
     public Commentary save(Commentary obj) {
+        obj.setPostedAt(DateTimeService.getCurrentDateTime());
         return commentaryRepository.save(obj);
     }
 

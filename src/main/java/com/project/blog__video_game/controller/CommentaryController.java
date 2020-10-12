@@ -3,10 +3,7 @@ package com.project.blog__video_game.controller;
 import com.project.blog__video_game.entity.Commentary;
 import com.project.blog__video_game.service.CommentaryService;
 import com.project.blog__video_game.service.JSONService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -34,5 +31,15 @@ public class CommentaryController
         List<Commentary> list_commentaries = commentaryService.getAll();
 
         return JSONService.stringify(list_commentaries);
+    }
+
+    //====================================================================================================
+    //
+    //====================================================================================================
+
+    @PostMapping("/REST/commentaries/new")
+    public void postNewCommentary (@RequestBody Commentary commentary)
+    {
+        commentaryService.save(commentary);
     }
 }
