@@ -5,10 +5,7 @@ import com.project.blog__video_game.entity.Commentary;
 import com.project.blog__video_game.entity.User;
 import com.project.blog__video_game.service.JSONService;
 import com.project.blog__video_game.service.UserService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -52,5 +49,10 @@ public class UserController
         List<Commentary> list_commentaries = userService.getAllCommentariesByUserId(id);
 
         return JSONService.stringify(list_commentaries);
+    }
+
+    @PostMapping("/sign-up")
+    public void signUp (@RequestBody User user) {
+        userService.save(user);
     }
 }
