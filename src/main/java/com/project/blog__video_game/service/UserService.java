@@ -7,6 +7,7 @@ import com.project.blog__video_game.repository.ArticleRepository;
 import com.project.blog__video_game.repository.CommentaryRepository;
 import com.project.blog__video_game.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +26,8 @@ public class UserService implements RESTService<User>
 
     @Override
     public User save(User obj) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        obj.setPassword(encoder.encode(obj.getPassword()));
         return userRepository.save(obj);
     }
 
