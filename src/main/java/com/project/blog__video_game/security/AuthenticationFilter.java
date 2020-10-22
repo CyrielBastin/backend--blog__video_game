@@ -2,6 +2,7 @@ package com.project.blog__video_game.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.blog__video_game.entity.User;
+import com.project.blog__video_game.service.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -12,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.annotation.Resource;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +29,8 @@ import static com.project.blog__video_game.security.SecurityConstants.*;
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter
 {
     private AuthenticationManager authenticationManager;
+    @Resource(name = "userService")
+    private UserService userService;
 
     public AuthenticationFilter (AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
@@ -61,9 +65,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter
             Authentication auth
     ) throws IOException, ServletException
     {
+        String username = ((org.springframework.security.core.userdetails.User) auth.getPrincipal()).getUsername();
         Date exp = new Date(System.currentTimeMillis() + EXPIRATION_TIME);
         Key key = Keys.hmacShaKeyFor(KEY.getBytes());
-        Claims claims = Jwts.claims().setSubject(((org.springframework.security.core.userdetails.User) auth.getPrincipal()).getUsername());
+        Claims claims = Jwts.claims().setSubject(username);
         String token = Jwts.builder().setClaims(claims).signWith(key, SignatureAlgorithm.HS512).setExpiration(exp).compact();
 
         res.setContentType("text/plain");

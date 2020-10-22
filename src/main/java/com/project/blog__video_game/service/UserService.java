@@ -58,4 +58,8 @@ public class UserService implements RESTService<User>
     {
         return commentaryRepository.findAllByUserId(id);
     }
+
+    public User getByUsername (String username) {
+        return userRepository.findUserByUsername(username);
+    }
 }

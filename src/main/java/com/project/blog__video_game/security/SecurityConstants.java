@@ -7,4 +7,3 @@ public class SecurityConstants
     public static final String HEADER_NAME = "Authorization";
     public static final Long EXPIRATION_TIME = 900_000L; // 15 mins
 }
-

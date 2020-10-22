@@ -27,6 +27,14 @@ public class UserController
         return JSONService.stringify(user);
     }
 
+    @GetMapping("/REST/users/name/{username}")
+    public String getUserByUsernameREST (@PathVariable String username)
+    {
+        User user = userService.getByUsername(username);
+
+        return JSONService.stringify(user);
+    }
+
     @GetMapping("/REST/users")
     public String getAllUsersREST ()
     {
