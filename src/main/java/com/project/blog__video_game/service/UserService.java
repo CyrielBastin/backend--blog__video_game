@@ -26,6 +26,8 @@ public class UserService implements RESTService<User>
 
     @Override
     public User save(User obj) {
+        User user_exist = userRepository.findUserByUsername(obj.getUsername());
+        if (user_exist != null) return new User();
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         obj.setPassword(encoder.encode(obj.getPassword()));
         return userRepository.save(obj);

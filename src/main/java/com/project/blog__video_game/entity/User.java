@@ -1,18 +1,26 @@
 package com.project.blog__video_game.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
+@Table(	name = "user",
+		uniqueConstraints = {
+			@UniqueConstraint(columnNames = "username"),
+			@UniqueConstraint(columnNames = "email")
+		})
 public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+	@Size(max = 50) @NotBlank
     private String username;
+	@Size(max = 100) @NotBlank
     private String password;
+	@Size(max = 100) @NotBlank @Email
     private String email;
     private String avatar;
     private int role;
