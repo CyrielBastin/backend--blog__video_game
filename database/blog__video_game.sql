@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Oct 10, 2020 at 08:02 PM
+-- Generation Time: Oct 24, 2020 at 02:08 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   KEY `IDX_000003` (`user_id`),
   KEY `IDX_000004` (`article_type_id`),
   KEY `IDX_000005` (`video_game_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `article`
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `commentary` (
   PRIMARY KEY (`id`),
   KEY `IDX_000006` (`user_id`),
   KEY `IDX_000007` (`article_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `commentary`
@@ -161,7 +161,8 @@ INSERT INTO `commentary` (`id`, `user_id`, `article_id`, `comment`, `posted_at`)
 (28, 2, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-21 17:32:03'),
 (29, 1, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-22 19:01:56'),
 (30, 3, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-22 19:47:42'),
-(31, 2, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-23 21:58:17');
+(31, 2, 18, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, voluptatum minima consequuntur repudiandae explicabo quidem magni officia saepe voluptates? Dolores recusandae corrupti magni voluptates iure neque blanditiis reprehenderit non voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae officiis inventore ab porro molestias, adipisci illum totam quae aspernatur blanditiis quis laborum suscipit quasi dolor veritatis asperiores assumenda quod eligendi.', '2020-09-23 21:58:17'),
+(32, 4, 16, 'A nice test', '2020-10-24 03:58:19');
 
 -- --------------------------------------------------------
 
@@ -230,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `avatar` tinytext,
   `role` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
@@ -239,7 +240,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `avatar`, `role`) VALUES
 (1, 'Grimm', 'Secured_password', 'fake_email@hotmail.com', 'Diablo_IV', 9),
 (2, 'Toto', 'totototo', 'toto@yahoo.fr', 'Far_Cry_5', 1),
-(3, 'Buddha', 'boubou', 'buddha123@hotmail.com', 'Human_Fall_Flat', 1);
+(3, 'Buddha', 'boubou', 'buddha123@hotmail.com', 'Human_Fall_Flat', 1),
+(4, 'hello', '$2a$10$c71qkPyhaDPaMc57ypKaau.0l0er9aN22weO6bP0jTeiIvEXxzCqm', 'hello.world@gmail.com', 'Diablo_IV', 9),
+(5, 'test', '$2a$10$fCNlBeu/JIOytzMroDDr5OkY0tJRSYTXMvVcXIlhdQBkXwkIt9IAq', 'test@test.test', 'Overwatch', 1);
 
 -- --------------------------------------------------------
 
