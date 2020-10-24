@@ -26,7 +26,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
     {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                .antMatchers(HttpMethod.GET, "/REST/articles/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/REST/articles").permitAll()
+                .antMatchers(HttpMethod.GET, "/REST/articles/{id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/REST/articles/desc").permitAll()
+                .antMatchers(HttpMethod.GET, "/REST/articles/{id}/commentaries/desc").permitAll()
                 .antMatchers(HttpMethod.GET, "/REST/article-types/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/REST/commentaries/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/REST/genres/**").permitAll()

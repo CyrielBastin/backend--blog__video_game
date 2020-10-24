@@ -68,13 +68,13 @@ public class ArticleController
         articleService.save(article);
     }
 
-    @PutMapping("/REST/articles/update")
+    @PostMapping("/REST/articles/update")
     public void putEditArticle (@RequestBody Article article)
     {
         articleService.save(article);
     }
 
-    @DeleteMapping("/REST/articles/delete/{id}")
+    @GetMapping("/REST/articles/delete/{id}")
     public void deleteArticle (@PathVariable Integer id)
     {
         articleService.delete(id);
